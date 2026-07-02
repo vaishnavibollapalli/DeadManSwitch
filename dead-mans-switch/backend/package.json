@@ -1,0 +1,29 @@
+{
+  "name": "dead-mans-switch-backend",
+  "version": "0.2.0",
+  "description": "Backend API + trigger-evaluation worker for the Dead Man's Switch digital legacy platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate": "psql -d \"$DATABASE_URL\" -f schema.sql && psql -d \"$DATABASE_URL\" -f 002_advanced_features.sql && psql -d \"$DATABASE_URL\" -f 003_onboarding_and_witness.sql"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "@sendgrid/mail": "^8.1.3",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-cron": "^3.0.3",
+    "pg": "^8.12.0",
+    "shamirs-secret-sharing": "^2.0.0",
+    "twilio": "^5.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
